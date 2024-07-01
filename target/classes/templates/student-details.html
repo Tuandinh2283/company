@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Student Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students}">Student Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/teachers}">Teacher Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <h1>Student Details</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th>Mã sinh viên:</th>
+                    <td th:text="${student.studentCode}"></td>
+                </tr>
+                <tr>
+                    <th>Tên sinh viên:</th>
+                    <td th:text="${student.studentName}"></td>
+                </tr>
+                <tr>
+                    <th>Giới tính:</th>
+                    <td th:text="${student.gender}"></td>
+                </tr>
+                <tr>
+                    <th>Ngày sinh:</th>
+                    <td th:text="${#temporals.format(student.dob, 'dd/MM/yyyy')}"></td>
+                </tr>
+                <tr>
+                    <th>Lớp:</th>
+                    <td th:text="${student.studentClass}"></td>
+                </tr>
+                <tr>
+                    <th>Khóa:</th>
+                    <td th:text="${student.course}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6">
+            <h3>Actions:</h3>
+            <a th:href="@{/students/input-scores/{id}(id=${student.id})}" class="btn btn-primary">Nhập điểm</a>
+            <a th:href="@{/students/view-scores/{id}(id=${student.id})}" class="btn btn-info">Xem điểm</a>
+            <a th:href="@{/students/view-result/{id}(id=${student.id})}" class="btn btn-success">Xem kết quả</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-bcbEY7AWU77rdlR5bU2fWxPIwDJF1fQ6pS6a8s6e3F5AfAf+LEmGfLW7Fj7Wav"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

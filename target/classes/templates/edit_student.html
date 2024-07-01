@@ -1,83 +1,66 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Student Management System</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="#">Student Management System</a>
-
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" th:href="@{/students}">Student Management</a>
-      </li>
-    </ul>
-  </div>
+    <a class="navbar-brand" href="#">Student Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/students}">Student Management</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 <br>
 <br>
-	<div class = "container">
-		<div class = "row">
-			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h1 class = "text-center"> Update Student </h1>
-				<div class = "card-body">
-					<form th:action="@{/students/{id} (id=${student.id})}" th:object = "${student}" method="POST">
-						<div class ="form-group">
-							<label> Student First Name </label>
-							<input
-							type = "text"
-							name = "firstName"
-							th:field = "*{firstName}"
-							class = "form-control"
-							placeholder="Enter Student First Name" 
-							/>
-						</div>
-						
-						<div class ="form-group">
-							<label> Student Last Name </label>
-							<input
-							type = "text"
-							name = "lastName"
-							th:field = "*{lastName}"
-							class = "form-control"
-							placeholder="Enter Student Last Name" 
-							/>
-						</div>
-						
-						<div class ="form-group">
-							<label> Student Email </label>
-							<input
-							type = "text"
-							name = "email"
-							th:field = "*{email}"
-							class = "form-control"
-							placeholder="Enter Student Email" 
-							/>
-						</div>
-						
-						<div class = "box-footer">
-							<button type="submit" class = "btn btn-primary">
-								Submit
-							</button>
-						</div>
-					</form>
-				
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center"> Update Student </h1>
+            <div class="card-body">
+                <form th:action="@{/students/{id}(id=${student.id})}" th:object="${student}" method="POST">
+                    <div class="form-group">
+                        <label>Mã sinh viên</label>
+                        <input type="text" name="studentCode" th:field="*{studentCode}" class="form-control" placeholder="Enter Student Code"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên sinh viên</label>
+                        <input type="text" name="studentName" th:field="*{studentName}" class="form-control" placeholder="Enter Student Name"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Giới tính</label>
+                        <input type="text" name="gender" th:field="*{gender}" class="form-control" placeholder="Enter Gender"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày sinh</label>
+                        <input type="text" name="dob" th:field="*{dob}" class="form-control" placeholder="Enter Date of Birth"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Lớp</label>
+                        <input type="text" name="studentClass" th:field="*{studentClass}" class="form-control" placeholder="Enter Class"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Khóa</label>
+                        <input type="text" name="course" th:field="*{course}" class="form-control" placeholder="Enter Course"/>
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-bcbEY7AWU77rdlR5bU2fWxPIwDJF1fQ6pS6a8s6e3F5AfAf+LEmGfLW7Fj7Wav" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
